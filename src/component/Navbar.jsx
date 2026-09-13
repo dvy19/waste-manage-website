@@ -6,8 +6,11 @@ import {
   FiMenu, 
   FiX 
 } from 'react-icons/fi';
+import { useNavigate } from 'react-router';
 
 export default function Navbar({ points = 150, onProfileClick, activePage = 'home' }) {
+
+  const navigate=useNavigate()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -60,7 +63,7 @@ export default function Navbar({ points = 150, onProfileClick, activePage = 'hom
             {/* Profile Button */}
             <button
               type="button"
-              onClick={onProfileClick}
+              onClick={()=>{navigate('/user-profile')}}
               className="p-2 rounded-full text-gray-600 hover:text-green-600 hover:bg-gray-100 transition cursor-pointer border border-gray-200"
               aria-label="User Profile"
             >

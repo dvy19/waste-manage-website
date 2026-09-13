@@ -5,6 +5,7 @@
     LOGIN:"user/login",
 
     CREATE_PROFILE:"user/create-profile",
+    GET_PROFILE:"user/get-profile",
 
     REUSE_ITEMS:"item/analyze-waste",
     CREATE_ITEM:"item/create-item",
@@ -16,6 +17,12 @@
     TRACK_ITEM:(trackingId)=>`item/get-item-id/${trackingId}`,
 
     GET_USER_ITEMS:"item/get-user-items",
+
+
+    CREATE_CENTRE:'admin/create-centre',
+
+    GET_ALL_CENTRE:'admin/get-centres',
+    GET_SINGLE_CENTRE:(id)=>`admin/get-single-centre/${id}`
 
 
 

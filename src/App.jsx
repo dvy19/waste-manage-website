@@ -6,6 +6,11 @@ import UserDetails from './pages/UserDetails'
 import MapPicker from './pages/MapPicker'
 import Home from './pages/Home'
 import AddItems from './pages/AddItems'
+import AddCentre from './admin/AddCentre'
+import CentreDetailScreen from './pages/CentreDetails'
+
+import ProfileScreen from './pages/ProfileScreen'
+import UserItemScreen from './pages/UserItemScreen'
 
 
 const App = () => {
@@ -18,9 +23,17 @@ const App = () => {
         <Route path='/login' element={<Login/>}/>
         <Route path='/userDetails' element={<UserDetails/>}/>
 
+        <Route path='/user-profile' element={<ProfileScreen/>}></Route>
+
         <Route path='/home' element={<Home/>}></Route>
 
         <Route path='/add-item' element={<AddItems/>}></Route>
+
+        <Route path='/add-centre' element={<AddCentre/>}></Route>
+
+        <Route path="/centre-details/:id" element={<CentreDetailScreen/>}></Route>
+
+        <Route path='/user-items' element={<UserItemScreen/>}></Route>
 
 
 

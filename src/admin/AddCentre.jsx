@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
-import MapPicker from './MapPicker';
+import MapPicker from '../pages/MapPicker';
 
 import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { authService } from '../services/authService';
+import { adminService } from '../services/adminService';
 import{ useNavigate} from 'react-router-dom'
 
 
-export default function UserDetails({ onSubmit, onBack }) {
+export default function AddCentre({ onSubmit, onBack }) {
 
   const navigate = useNavigate()
   
   const [formData, setFormData] = useState({
-    phoneNumber: '',
     city: '',
     pinCode: '',
     address: '',
-    profile: null,
+    image: null,
+    material:'',
     profilePreview: null,
+    contact:'',
+    owner:'',
     coordinates: [null,null]
   });
 
@@ -80,10 +82,8 @@ export default function UserDetails({ onSubmit, onBack }) {
 
     try{
 
-      const prof=await authService.createProfile(formData)
-      console.log(prof)
-
-      navigate('/home')
+      const centre=await adminService.createCentre(formData)
+      console.log(centre)
     }
     catch(err){
       console.log(`${err}`)
@@ -140,17 +140,50 @@ export default function UserDetails({ onSubmit, onBack }) {
             
             {/* Phone Number */}
             <div>
-              <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="contact" className="block text-sm font-medium text-gray-700 mb-1">
                 Phone Number
               </label>
               <input
-                id="phoneNumber"
-                name="phoneNumber"
+                id="contact"
+                name="contact"
                 type="tel"
                 required
-                value={formData.phoneNumber}
+                value={formData.contact}
                 onChange={handleChange}
                 placeholder="+1 (555) 000-0000"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-gray-900 placeholder-gray-400 text-sm"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="material" className="block text-sm font-medium text-gray-700 mb-1">
+                Material
+              </label>
+              <input
+                id="material"
+                name="material"
+                type="text"
+                required
+                value={formData.material}
+                onChange={handleChange}
+                placeholder="plastic Centre"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-gray-900 placeholder-gray-400 text-sm"
+              />
+            </div>
+
+
+             <div>
+              <label htmlFor="owner" className="block text-sm font-medium text-gray-700 mb-1">
+                Owner Name
+              </label>
+              <input
+                id="owner"
+                name="owner"
+                type="text"
+                required
+                value={formData.owner}
+                onChange={handleChange}
+                placeholder="NGO"
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-gray-900 placeholder-gray-400 text-sm"
               />
             </div>
@@ -189,6 +222,8 @@ export default function UserDetails({ onSubmit, onBack }) {
                 />
               </div>
             </div>
+
+            
 
             {/* Home Address */}
             <div>

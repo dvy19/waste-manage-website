@@ -23,10 +23,10 @@ export const authService={
 
         const data=new FormData();
 
-        data.append("phoneNumber" , phoneNumber);
-        data.append("city",city);
-        data.append("pinCode", pinCode),
-        data.append("address",address);
+        data.append("phoneNumber" , formData.phoneNumber);
+        data.append("city",formData.city);
+        data.append("pinCode", formData.pinCode),
+        data.append("address",formData.address);
 
         if(formData.profile){
             data.append("profile",formData.profile)
@@ -37,9 +37,22 @@ export const authService={
             JSON.stringify(formData.coordinates)
         );
 
-        const response=await api.post(endpoints.CREATE_PROFILE,data)
+        const response=await api.post(endpoints.CREATE_PROFILE,data , {
+            headers: {
+    "Content-Type": "multipart/form-data"
+}
+        })
 
         return response.data
+
+    },
+
+    getProfile:async()=>{
+
+        const profile=await api.get(endpoints.GET_PROFILE)
+        
+        return profile.data
+
 
     }
 }
