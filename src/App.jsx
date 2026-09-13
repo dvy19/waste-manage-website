@@ -4,6 +4,8 @@ import Register   from './pages/Register'
 import Login from './pages/Login'
 import UserDetails from './pages/UserDetails'
 import MapPicker from './pages/MapPicker'
+import Home from './pages/Home'
+import AddItems from './pages/AddItems'
 
 
 const App = () => {
@@ -16,7 +18,9 @@ const App = () => {
         <Route path='/login' element={<Login/>}/>
         <Route path='/userDetails' element={<UserDetails/>}/>
 
-        <Route path='/map-picker' element={<MapPicker/>}></Route>
+        <Route path='/home' element={<Home/>}></Route>
+
+        <Route path='/add-item' element={<AddItems/>}></Route>
 
 
 

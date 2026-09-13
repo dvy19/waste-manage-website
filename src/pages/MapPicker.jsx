@@ -10,6 +10,8 @@ function LocationSelector({ setLocation }) {
       console.log("Latitude:", lat);
       console.log("Longitude:", lng);
 
+      
+
       setLocation({
         lat,
         lng,
