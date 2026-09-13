@@ -54,5 +54,11 @@ export const authService={
         return profile.data
 
 
+    },
+
+
+    getUserStats:async()=>{
+        const stats=await api.get(endpoints.USER_STATS)
+        return stats.data
     }
 }

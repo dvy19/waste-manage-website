@@ -22,7 +22,10 @@
     CREATE_CENTRE:'admin/create-centre',
 
     GET_ALL_CENTRE:'admin/get-centres',
-    GET_SINGLE_CENTRE:(id)=>`admin/get-single-centre/${id}`
+    GET_SINGLE_CENTRE:(id)=>`admin/get-single-centre/${id}`,
+
+    CREATE_SALES_ITEM:"admin/create-item",
+    GET_SALES_ITEMS:"admin/get-sales-items"
 
 
 

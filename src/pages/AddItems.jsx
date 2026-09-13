@@ -13,6 +13,7 @@ import {
 import SuccessModal from '../component/SuccessModal';
 
 import Navbar from '../component/Navbar';
+import { itemService } from '../services/itemService';
 export default function AddItem({ onAddItem, onCancel }) {
   // Individual state variables
   const [name, setName] = useState('');
@@ -53,7 +54,7 @@ export default function AddItem({ onAddItem, onCancel }) {
     setImagePreview(null);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
 
     const newItemData = {
@@ -64,9 +65,18 @@ export default function AddItem({ onAddItem, onCancel }) {
       image,
     };
 
-    setIsModalOpen(true)
+    try{
+      
+      const item=await itemService.createItem(newItemData)
 
-    console.log('Submitted Item Data:', newItemData);
+      console.log(item)
+      
+      setIsModalOpen(true)
+    }
+    catch(err){
+      console.log(`${err}`)
+    }
+
 
     if (onAddItem) {
       onAddItem(newItemData);

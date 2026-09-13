@@ -12,6 +12,9 @@ import CentreDetailScreen from './pages/CentreDetails'
 import ProfileScreen from './pages/ProfileScreen'
 import UserItemScreen from './pages/UserItemScreen'
 
+import PhoneLogin from './pages/PhoneLogin'
+import AddSalesItem from './admin/AddSalesItem'
+
 
 const App = () => {
   return (
@@ -31,9 +34,14 @@ const App = () => {
 
         <Route path='/add-centre' element={<AddCentre/>}></Route>
 
+        <Route path='/phone-login' element={<PhoneLogin/>}></Route>
+
         <Route path="/centre-details/:id" element={<CentreDetailScreen/>}></Route>
 
         <Route path='/user-items' element={<UserItemScreen/>}></Route>
+
+
+        <Route  path='/add-sales-item' element={<AddSalesItem/>}></Route>
 
 
 

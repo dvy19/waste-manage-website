@@ -51,6 +51,42 @@ export const adminService={
         const centre=await api.get(`${endpoints.GET_SINGLE_CENTRE(id)}`)
 
         return centre.data
+    },
+
+
+    createSalesItem:async(formData)=>{
+
+        const data=new FormData()
+
+        data.append("name" , formData.name);
+        data.append("price",formData.price)
+        data.append("quantity",formData.quantity),
+        data.append("manufacturer",formData.manufacturer)
+        data.append("materials" , formData.materials)
+        data.append("about" , formData.about)
+
+
+        if(formData.image){
+            data.append("image" , formData.image)
+        }
+
+        const item=await api.post(endpoints.CREATE_SALES_ITEM , data , 
+            {
+                 headers: {
+                "Content-Type": "multipart/form-data"
+                    }
+            }
+        )
+
+        return item.data
+    },
+
+
+    getSalesItems:async()=>{
+
+        const items=await api.get(endpoints.GET_SALES_ITEMS)
+
+        return items.data
     }
 
 

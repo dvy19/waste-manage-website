@@ -3,9 +3,26 @@ import Navbar from '../component/Navbar'
 import AddItemCard from '../component/AddItemCard'
 import { adminService } from '../services/adminService'
 import CentreCard from '../component/CentreCard'
+import SalesItemCard from '../component/SalesItemCard'
 const Home = () => {
 
   const[centres,setCentres]=useState([]);
+
+  const[saleItems,setSalesItems]=useState([]);
+
+  const getSalesItems=async()=>{
+
+    try{
+      const data=await adminService.getSalesItems();
+
+      console.log(data.items)
+      setSalesItems(data.items)
+    }
+    catch(err){
+      console.log(`${err}`)
+    }
+
+  }
 
   const getCentre=async()=>{
 
@@ -23,7 +40,8 @@ const Home = () => {
 
 
   useEffect(()=>{
-    getCentre()
+    getCentre(),
+    getSalesItems()
   } , []);
 
   return (
@@ -34,6 +52,22 @@ const Home = () => {
     <div className="p-20">
         <AddItemCard></AddItemCard>
     </div>
+
+    
+
+    {/* HORIZONTAL SCROLL CONTAINER for sales items */}
+    <h1 className=" pl-20  text-3xl">View Our Inventory</h1>
+      <div className="flex space-x-5 pl-20 pt-10 pb-20 overflow-x-auto  snap-x snap-mandatory scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+        {saleItems.map((items) => (
+          <div 
+            key={items._id} 
+            className="snap-start shrink-0 w-[280px] sm:w-[320px]"
+          >
+
+            <SalesItemCard item={items}></SalesItemCard>
+          </div>
+        ))}
+      </div>
 
     {/* HORIZONTAL SCROLL CONTAINER */}
     <h1 className=" pl-20 text-3xl">All Centres Nearby</h1>
@@ -54,6 +88,10 @@ const Home = () => {
           </div>
         ))}
       </div>
+
+
+
+      
 
    </>
   )

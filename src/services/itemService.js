@@ -10,4 +10,31 @@ export const itemService={
         return items.data
 
     },
+
+    createItem:async(newItemData)=>{
+
+        const data=new FormData();
+
+        data.append("name" , newItemData.name)
+        data.append("quantity" , newItemData.quantity)
+        data.append("weight" , newItemData.weight)
+        data.append("category" , newItemData.category)
+
+
+        if(newItemData.image){
+            data.append("image" , newItemData.image)
+        }
+
+        const item=await api.post(endpoints.CREATE_ITEM, data, {
+             headers: {
+                "Content-Type": "multipart/form-data"
+            }
+        })
+
+
+        return item.data
+
+
+
+    }
 }
