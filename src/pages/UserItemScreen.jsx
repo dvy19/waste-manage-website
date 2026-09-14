@@ -34,7 +34,6 @@ const UserItemScreen = () => {
        {items.map((item) => (
                  <div 
                    key={item._id} 
-                   className="snap-start shrink-0 w-[280px] sm:w-[320px]"
                  >
                   <ItemCard item={item}/>
                  </div>

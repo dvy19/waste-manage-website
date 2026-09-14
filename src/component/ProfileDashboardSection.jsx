@@ -32,6 +32,7 @@ const ProfileDashboardSection = () => {
       subheading: 'Total items contributed',
       icon: Package,
       color: 'bg-indigo-50 text-indigo-600',
+      
     },
     {
       id: 2,

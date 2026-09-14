@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import socket from "../api/socket";
 import { adminService } from "../services/adminService";
 
+import ItemCard from "../component/ItemCard";
+
 function AdminDashboard() {
 
     const { id } = useParams();
@@ -11,10 +13,10 @@ function AdminDashboard() {
     const getItems=async()=>{
 
         try{
-            const items=await adminService.getItems()
+            const items=await adminService.getAllReqItems()
 
             console.log(items)
-            setItemRequests(items.items)
+            setItemRequests(items.item)
         }
         catch(err){
             console.log(`${err}`)
@@ -59,58 +61,9 @@ function AdminDashboard() {
 
                 {itemRequests.map((item) => (
 
-                    <div className="item-card" key={item._id}>
+                    <ItemCard item={item}/>
 
-                        <div className="item-card-header">
-
-                            <div>
-                                <h3>{item.name}</h3>
-
-                                <span className="status">
-                                    {item.status}
-                                </span>
-                            </div>
-
-                            <span className="tracking-id">
-                                {item.trackingId}
-                            </span>
-
-                        </div>
-
-
-                        <div className="item-details">
-
-                            <div>
-                                <p>Category</p>
-                                <strong>{item.category}</strong>
-                            </div>
-
-                            <div>
-                                <p>Quantity</p>
-                                <strong>{item.quantity}</strong>
-                            </div>
-
-                            <div>
-                                <p>Weight</p>
-                                <strong>{item.weight} kg</strong>
-                            </div>
-
-                        </div>
-
-
-                        <div className="item-card-footer">
-
-                            <span>
-                                {new Date(item.createdAt).toLocaleString()}
-                            </span>
-
-                            <button>
-                                View Request
-                            </button>
-
-                        </div>
-
-                    </div>
+                
 
                 ))}
 

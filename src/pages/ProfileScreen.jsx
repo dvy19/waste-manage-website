@@ -35,7 +35,7 @@ const ProfileScreen = () => {
   const menuItems = [
     { id: 1, label: 'Track Item', icon: Package, onClick: () => {navigate('/track-item')} },
     { id: 2, label: 'Create Coupon', icon: User, onClick: () => {navigate('/create-coupon')} },
-    { id: 3, label: 'More Settings', icon: Settings, onClick: () => console.log('More Settings clicked') },
+    { id: 3, label: 'View All items', icon: Settings, onClick: () => {navigate('/user-items')} },
   ];
 
   return (
