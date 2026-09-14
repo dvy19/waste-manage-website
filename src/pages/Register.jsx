@@ -151,7 +151,7 @@ export default function Register() {
             Already have an account?{' '}
             <button
               type="button"
-              onClick={()=>{navigate('/map-picker')}}
+              onClick={()=>{navigate('/login')}}
               className="font-medium text-blue-600 hover:text-blue-500 cursor-pointer underline hover:no-underline"
             >
               Log in

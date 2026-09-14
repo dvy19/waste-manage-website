@@ -26,6 +26,7 @@ export default function Login({ onNavigateToLogin }) {
             const data=await authService.login(formData)
 
             console.log(data)
+            navigate('/home')
         }
         catch(err){
             console.log(`${err}`)

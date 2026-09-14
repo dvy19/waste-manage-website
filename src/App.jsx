@@ -18,6 +18,7 @@ import AdminLogin from './admin/AdminLogin'
 import AdminDashboard from './admin/AdminDashboard'
 
 import TrackItem from './pages/TrackItem'
+import CreateCoupon from './pages/CreateCoupon'
 
 
 const App = () => {
@@ -53,6 +54,8 @@ const App = () => {
 
 
         <Route path='/track-item' element={<TrackItem/>}></Route>
+
+        <Route path='/create-coupon' element={<CreateCoupon/>}></Route>
 
 
 

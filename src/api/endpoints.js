@@ -27,7 +27,11 @@
     GET_SINGLE_CENTRE:(id)=>`admin/get-single-centre/${id}`,
 
     CREATE_SALES_ITEM:"admin/create-item",
-    GET_SALES_ITEMS:"admin/get-sales-items"
+    GET_SALES_ITEMS:"admin/get-sales-items",
+
+
+    CREATE_COUPONS:"item/create-coupons",
+    GET_USER_COUPONS:"item/get-user-coupons"
 
 
 

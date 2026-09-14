@@ -44,5 +44,20 @@ export const itemService={
         const data=await api.post(`${endpoints.TRACK_ITEM(trackingId)}`)
 
         return data.data
+    },
+
+    createCoupon:async(req)=>{
+
+        const data=await api.post(endpoints.CREATE_COUPONS , req)
+        return data.data
+    },
+
+
+    getUserCoupons:async()=>{
+
+        const coupons=await api.get(endpoints.GET_USER_COUPONS)
+
+        return coupons.data
+
     }
 }
