@@ -29,6 +29,9 @@
     CREATE_SALES_ITEM:"admin/create-item",
     GET_SALES_ITEMS:"admin/get-sales-items",
 
+    GET_SALES_ITEMS_BY_ID:(id)=>`admin/get-sales-item/${id}`,
+
+
 
     CREATE_COUPONS:"item/create-coupons",
     GET_USER_COUPONS:"item/get-user-coupons"

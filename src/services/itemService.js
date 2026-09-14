@@ -59,5 +59,14 @@ export const itemService={
 
         return coupons.data
 
+    },
+
+
+
+    getSaleItemById:async(id)=>{
+
+        const item=await api.post(`${endpoints.GET_SALES_ITEMS_BY_ID(id)}`)
+
+        return item.data
     }
 }

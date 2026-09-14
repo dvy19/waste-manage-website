@@ -19,6 +19,7 @@ import AdminDashboard from './admin/AdminDashboard'
 
 import TrackItem from './pages/TrackItem'
 import CreateCoupon from './pages/CreateCoupon'
+import SalesItemDetails from './pages/SalesItemDetails'
 
 
 const App = () => {
@@ -44,6 +45,8 @@ const App = () => {
         <Route path="/centre-details/:id" element={<CentreDetailScreen/>}></Route>
 
         <Route path='/user-items' element={<UserItemScreen/>}></Route>
+
+        <Route path='/buy-item/:id' element={<SalesItemDetails/>}></Route>
 
 
         <Route  path='/add-sales-item' element={<AddSalesItem/>}></Route>

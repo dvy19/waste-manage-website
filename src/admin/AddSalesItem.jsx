@@ -3,6 +3,7 @@ import { Plus, X, Upload, Package, DollarSign, Layers, Tag, FileText, ArrowLeft 
 import { adminService } from '../services/adminService';
 
 const AddSalesItem = ({ onSave, onBack }) => {
+  
   const [formData, setFormData] = useState({
     name: '',
     manufacturer: '',

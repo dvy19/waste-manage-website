@@ -1,11 +1,18 @@
 import React from 'react';
 import { ShoppingCart, Heart } from 'lucide-react';
+import { useNavigate } from 'react-router';
 
 const SalesItemCard = ({ item}) => {
   
 
+  const navigate=useNavigate()
+
   return (
-    <div className="group relative bg-white border border-gray-100 rounded-2xl p-3 sm:p-4 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full">
+    <div className="group relative bg-white border border-gray-100 rounded-2xl p-3 sm:p-4 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full"
+
+    
+    
+    >
       {/* Top Section: Image & Wishlist Button */}
       <div>
         <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-gray-50 mb-3">
@@ -13,6 +20,8 @@ const SalesItemCard = ({ item}) => {
             src={item.image}
             alt={item.name}
             className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+
+            onClick={()=>{navigate(`/buy-item/${item._id}`)}}
           />
           
           {/* Wishlist Button */}
