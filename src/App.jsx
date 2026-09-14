@@ -14,6 +14,10 @@ import UserItemScreen from './pages/UserItemScreen'
 
 import PhoneLogin from './pages/PhoneLogin'
 import AddSalesItem from './admin/AddSalesItem'
+import AdminLogin from './admin/AdminLogin'
+import AdminDashboard from './admin/AdminDashboard'
+
+import TrackItem from './pages/TrackItem'
 
 
 const App = () => {
@@ -42,6 +46,14 @@ const App = () => {
 
 
         <Route  path='/add-sales-item' element={<AddSalesItem/>}></Route>
+
+
+        <Route path='/admin-login' element={<AdminLogin/>}></Route>
+        <Route path='/admin-dash/:id' element={<AdminDashboard/>}></Route>
+
+
+        <Route path='/track-item' element={<TrackItem/>}></Route>
+
 
 
 

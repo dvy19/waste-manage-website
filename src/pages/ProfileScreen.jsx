@@ -3,11 +3,14 @@ import { Package, User, Settings, LogOut, ChevronRight, MapPin, Mail } from 'luc
 import Navbar from '../component/Navbar';
 import ProfileDashboardSection from '../component/ProfileDashboardSection';
 import { authService } from '../services/authService';
+import { useNavigate } from 'react-router';
 
 const ProfileScreen = () => {
   // Sample user data (Replace with dynamic data/props)
 
   const[user,setUser]=useState({})
+
+  const navigate=useNavigate()
 
   
   const getUser=async()=>{
@@ -30,7 +33,7 @@ const ProfileScreen = () => {
   } , [])
 
   const menuItems = [
-    { id: 1, label: 'Track Item', icon: Package, onClick: () => console.log('Track Item clicked') },
+    { id: 1, label: 'Track Item', icon: Package, onClick: () => {navigate('/track-item')} },
     { id: 2, label: 'Edit Profile', icon: User, onClick: () => console.log('Edit Profile clicked') },
     { id: 3, label: 'More Settings', icon: Settings, onClick: () => console.log('More Settings clicked') },
   ];

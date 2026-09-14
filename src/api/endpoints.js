@@ -9,6 +9,8 @@
 
     REUSE_ITEMS:"item/analyze-waste",
     CREATE_ITEM:"item/create-item",
+    
+    GET_ALL_ITEMS:"admin/get-items",
 
     USER_STATS:"item/get-user-stats",
 

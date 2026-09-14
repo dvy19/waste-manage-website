@@ -87,6 +87,15 @@ export const adminService={
         const items=await api.get(endpoints.GET_SALES_ITEMS)
 
         return items.data
+    },
+
+
+
+    getAllReqItems:async()=>{
+
+        const items=await api.get(endpoints.GET_ALL_ITEMS)
+
+        return items.data
     }
 
 

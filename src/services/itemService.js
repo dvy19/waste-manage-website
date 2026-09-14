@@ -36,5 +36,13 @@ export const itemService={
 
 
 
+    },
+
+
+    trackItem:async(trackingId)=>{
+
+        const data=await api.post(`${endpoints.TRACK_ITEM(trackingId)}`)
+
+        return data.data
     }
 }
