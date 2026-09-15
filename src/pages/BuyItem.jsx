@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { useLocation } from 'react-router';
 import { itemService } from '../services/itemService';
+import { authService } from '../services/authService';
 
 export default function BuyItem({ 
   selectedQuantity = 1,
@@ -22,6 +23,9 @@ export default function BuyItem({
   const [errorMsg, setErrorMsg] = useState('');
 
   const[coupon,setCoupon]=useState({})
+
+
+  const [idempotencyKey] = useState(() => crypto.randomUUID());
 
   const {state}=useLocation()
 
@@ -51,6 +55,30 @@ export default function BuyItem({
     }
 }
 
+
+const createOrder=async()=>{
+
+  console.log(item._id)
+  console.log(item.quantity)
+
+    try{
+
+      const order=await authService.createOrder({
+        idempotencyKey,
+        id:item._id,
+        quantity:item.quantity,
+        amount:item.price
+      })
+
+      console.log(idempotencyKey)
+
+      console.log(order)
+      
+    }
+     catch(err){
+        console.log(`${err}`)
+    }
+}
   
 
 
@@ -189,7 +217,7 @@ export default function BuyItem({
 
           {/* Confirm Order Button */}
           <button
-            onClick={() => alert('Order Placed Successfully!')}
+            onClick={createOrder}
             className="w-full py-4 rounded-xl font-bold text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 shadow-md hover:shadow-lg transition-all flex items-center justify-center space-x-2"
           >
             <ShoppingBag className="w-5 h-5" />

@@ -36,6 +36,7 @@ const ProfileScreen = () => {
     { id: 1, label: 'Track Item', icon: Package, onClick: () => {navigate('/track-item')} },
     { id: 2, label: 'Create Coupon', icon: User, onClick: () => {navigate('/create-coupon')} },
     { id: 3, label: 'View All items', icon: Settings, onClick: () => {navigate('/user-items')} },
+    { id: 3, label: 'View All Orders', icon: Settings, onClick: () => {navigate('/user-orders')} },
   ];
 
   return (

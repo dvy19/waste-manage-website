@@ -22,6 +22,7 @@ import CreateCoupon from './pages/CreateCoupon'
 import SalesItemDetails from './pages/SalesItemDetails'
 
 import BuyItem from './pages/BuyItem'
+import AllOrders from './pages/AllOrders'
 
 const App = () => {
   return (
@@ -62,6 +63,8 @@ const App = () => {
         <Route path='/track-item' element={<TrackItem/>}></Route>
 
         <Route path='/create-coupon' element={<CreateCoupon/>}></Route>
+        
+        <Route path="/user-orders" element={<AllOrders/>}></Route>
 
 
 

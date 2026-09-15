@@ -60,5 +60,21 @@ export const authService={
     getUserStats:async()=>{
         const stats=await api.get(endpoints.USER_STATS)
         return stats.data
+    },
+
+
+    createOrder:async(req)=>{
+
+        const order=await api.post(endpoints.CREATE_ORDER,req)
+
+        return order.data
+
+    },
+
+    getUserOrders:async()=>{
+
+        const orders=await api.get(endpoints.GET_USER_ORDERS)
+
+        return orders.data
     }
 }

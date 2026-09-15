@@ -31,12 +31,14 @@
 
     GET_SALES_ITEMS_BY_ID:(id)=>`admin/get-sales-item/${id}`,
 
-
-
     CREATE_COUPONS:"item/create-coupons",
     GET_USER_COUPONS:"item/get-user-coupons",
 
-    CHECK_COUPONS:"item/check-coupon"
+    CHECK_COUPONS:"item/check-coupon",
+
+    CREATE_ORDER:"user/create-order",
+
+    GET_USER_ORDERS:"user/get-user-orders"
 
 
 
