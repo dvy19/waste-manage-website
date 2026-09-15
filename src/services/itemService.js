@@ -38,7 +38,6 @@ export const itemService={
 
     },
 
-
     trackItem:async(trackingId)=>{
 
         const data=await api.post(`${endpoints.TRACK_ITEM(trackingId)}`)
@@ -52,7 +51,6 @@ export const itemService={
         return data.data
     },
 
-
     getUserCoupons:async()=>{
 
         const coupons=await api.get(endpoints.GET_USER_COUPONS)
@@ -61,12 +59,19 @@ export const itemService={
 
     },
 
+    checkCoupon:async(req)=>{
 
+        const data=await api.post(endpoints.CHECK_COUPONS , req)
+
+        return data.data
+    },
 
     getSaleItemById:async(id)=>{
 
         const item=await api.post(`${endpoints.GET_SALES_ITEMS_BY_ID(id)}`)
 
         return item.data
-    }
+    },
+
+
 }

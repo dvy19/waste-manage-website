@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ShoppingCart, Zap, Package, ShieldCheck, Heart, Share2, Check } from 'lucide-react';
 import { itemService } from '../services/itemService';
-import { useParams, useSearchParams } from 'react-router';
+import { useNavigate, useParams, useSearchParams } from 'react-router';
 
 export default function SalesItemDetails({ formData }) {
 
@@ -13,6 +13,8 @@ export default function SalesItemDetails({ formData }) {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantityCount, setQuantityCount] = useState(1);
   const [isWishlisted, setIsWishlisted] = useState(false);
+
+  const navigate=useNavigate();
 
 
   const getItemDetails=async(id)=>{
@@ -166,6 +168,17 @@ const inStock = item?.quantity > 0;
                 <button
                   disabled={!inStock}
                   className="w-full py-3.5 px-6 rounded-xl font-semibold text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg transition-all flex items-center justify-center space-x-2"
+
+                  onClick={()=>{
+                    navigate(
+                      '/buy-now',{
+                         state:{
+                            item:item
+                          }
+                      }
+                     
+                    )
+                  }}
                 >
                   <Zap className="w-5 h-5" />
                   <span>Buy Now</span>

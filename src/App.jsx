@@ -21,10 +21,11 @@ import TrackItem from './pages/TrackItem'
 import CreateCoupon from './pages/CreateCoupon'
 import SalesItemDetails from './pages/SalesItemDetails'
 
+import BuyItem from './pages/BuyItem'
 
 const App = () => {
   return (
-    <BrowserRouter basename="/waste-manage-website">
+    <BrowserRouter >
 
       <Routes>
 
@@ -47,6 +48,8 @@ const App = () => {
         <Route path='/user-items' element={<UserItemScreen/>}></Route>
 
         <Route path='/buy-item/:id' element={<SalesItemDetails/>}></Route>
+
+        <Route path='/buy-now' element={<BuyItem/>}></Route>
 
 
         <Route  path='/add-sales-item' element={<AddSalesItem/>}></Route>
