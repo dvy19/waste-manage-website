@@ -74,4 +74,24 @@ export const itemService={
     },
 
 
+    getAiSuggestion:async(file)=>{
+
+        const data=new FormData()
+
+
+        if(file){
+            data.append("image" , file)
+        }
+
+        const idea=await api.post(endpoints.AI_SUGGEST , data, {
+            headers: {
+                "Content-Type": "multipart/form-data"
+            }
+        }
+        )
+
+        return idea.data
+    }
+
+
 }

@@ -4,6 +4,7 @@ import AddItemCard from '../component/AddItemCard'
 import { adminService } from '../services/adminService'
 import CentreCard from '../component/CentreCard'
 import SalesItemCard from '../component/SalesItemCard'
+import AISuggestionNavCard from '../component/AISuggestionNavCard'
 const Home = () => {
 
   const[centres,setCentres]=useState([]);
@@ -49,8 +50,10 @@ const Home = () => {
 
    <Navbar></Navbar>
 
-    <div className="p-20">
+    <div className="p-20 flex flex-col gap-10">
         <AddItemCard></AddItemCard>
+
+        <AISuggestionNavCard></AISuggestionNavCard>
     </div>
 
     

@@ -23,6 +23,7 @@ import SalesItemDetails from './pages/SalesItemDetails'
 
 import BuyItem from './pages/BuyItem'
 import AllOrders from './pages/AllOrders'
+import AiSuggestionScreen from './pages/AiSuggestionScreen'
 
 const App = () => {
   return (
@@ -66,6 +67,7 @@ const App = () => {
         
         <Route path="/user-orders" element={<AllOrders/>}></Route>
 
+        <Route path='/ai-suggest' element={<AiSuggestionScreen/>}></Route>
 
 
 

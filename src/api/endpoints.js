@@ -38,7 +38,9 @@
 
     CREATE_ORDER:"user/create-order",
 
-    GET_USER_ORDERS:"user/get-user-orders"
+    GET_USER_ORDERS:"user/get-user-orders",
+
+    AI_SUGGEST:"item/analyze-waste"
 
 
 
