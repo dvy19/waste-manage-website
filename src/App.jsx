@@ -24,7 +24,7 @@ import SalesItemDetails from './pages/SalesItemDetails'
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/waste-manage">
 
       <Routes>
 
