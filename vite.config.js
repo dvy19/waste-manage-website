@@ -7,5 +7,5 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
-  base: '/waste-manage/',
+  base: '/waste-manage-website/',
 })
