@@ -76,5 +76,13 @@ export const authService={
         const orders=await api.get(endpoints.GET_USER_ORDERS)
 
         return orders.data
+    },
+
+    getOrderStats:async()=>{
+
+        const data=await api.get(endpoints.GET_ORDER_STATS)
+        
+        return data.data
+
     }
 }

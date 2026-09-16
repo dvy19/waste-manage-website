@@ -40,7 +40,9 @@
 
     GET_USER_ORDERS:"user/get-user-orders",
 
-    AI_SUGGEST:"item/analyze-waste"
+    AI_SUGGEST:"item/analyze-waste",
+
+    GET_ORDER_STATS:"user/order-stats",
 
 
 

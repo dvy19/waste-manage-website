@@ -56,6 +56,23 @@ export default function BuyItem({
 }
 
 
+
+
+const getOrderSumm=async()=>{
+
+  try{
+    const orderStats=await authService.getOrderStats()
+
+    console.log(orderStats)
+  }
+  catch(err){
+    console.log(`${err}`)
+  }
+}
+
+
+
+
 const createOrder=async()=>{
 
   console.log(item._id)
@@ -67,18 +84,22 @@ const createOrder=async()=>{
         idempotencyKey,
         id:item._id,
         quantity:item.quantity,
-        amount:item.price
+        amount:item.price,
+        coupon:coupon._id
       })
 
       console.log(idempotencyKey)
 
       console.log(order)
+
+      await getOrderSumm()
       
     }
      catch(err){
         console.log(`${err}`)
     }
 }
+
   
 
 
