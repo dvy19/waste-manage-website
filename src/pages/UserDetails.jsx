@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import MapPicker from './MapPicker';
 
 import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
@@ -23,7 +23,26 @@ export default function UserDetails({ onSubmit, onBack }) {
 
   const [location, setLocation] = useState(null);
 
-  const center = [28.6692, 77.4538];
+    const [center, setCenter] = useState(null);
+
+    useEffect(() => {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+
+          setCenter([latitude, longitude]);
+
+          setFormData((prev) => ({
+            ...prev,
+            coordinates: [longitude, latitude]
+          }));
+        },
+        (error) => {
+          console.log("Location error:", error);
+        }
+      );
+    }, []);
+
 
   const LocationSelector=({ setLocation })=> {
     useMapEvents({
@@ -47,6 +66,8 @@ export default function UserDetails({ onSubmit, onBack }) {
   
     return null;
   }
+
+  
 
   const [isLocating, setIsLocating] = useState(false);
   const [locationError, setLocationError] = useState('');
@@ -274,22 +295,24 @@ export default function UserDetails({ onSubmit, onBack }) {
       </div>
 
 
-      <MapContainer
-            center={center}
-            zoom={23}
-            style={{ height: "500px", width: "100%" }}
-          >
-            <TileLayer
-              attribution='&copy; OpenStreetMap contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-      
-            <LocationSelector setLocation={setLocation} />
-      
-            {location && (
-              <Marker position={[location.lat, location.lng]} />
-            )}
-          </MapContainer>
+     {center && (
+            <MapContainer
+              center={center}
+              zoom={23}
+              style={{ height: "500px", width: "100%" }}
+            >
+              <TileLayer
+                attribution='&copy; OpenStreetMap contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+
+              <LocationSelector setLocation={setLocation} />
+
+              {location && (
+                <Marker position={[location.lat, location.lng]} />
+              )}
+            </MapContainer>
+          )}
     </div>
   );
 }

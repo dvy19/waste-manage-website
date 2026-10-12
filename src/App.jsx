@@ -6,7 +6,7 @@ import UserDetails from './pages/UserDetails'
 import MapPicker from './pages/MapPicker'
 import Home from './pages/Home'
 import AddItems from './pages/AddItems'
-import AddCentre from './admin/AddCentre'
+import AddCentre from './pages/Centre/AddCentre'
 import CentreDetailScreen from './pages/CentreDetails'
 
 import ProfileScreen from './pages/ProfileScreen'
@@ -24,12 +24,19 @@ import SalesItemDetails from './pages/SalesItemDetails'
 import BuyItem from './pages/BuyItem'
 import AllOrders from './pages/AllOrders'
 import AiSuggestionScreen from './pages/AiSuggestionScreen'
+import LandingPage from './pages/LandingPage'
+import CentreRegister from './pages/Centre/CentreRegister'
+import CentreLogin from './pages/Centre/CentreLogin'
+import CentreHome from './pages/Centre/CentreHome'
+
 
 const App = () => {
   return (
     <BrowserRouter >
 
       <Routes>
+
+        <Route path='/' element={<LandingPage/>}></Route>
 
         <Route path='/register' element={<Register/>}/>
         <Route path='/login' element={<Login/>}/>
@@ -68,6 +75,12 @@ const App = () => {
         <Route path="/user-orders" element={<AllOrders/>}></Route>
 
         <Route path='/ai-suggest' element={<AiSuggestionScreen/>}></Route>
+
+        <Route path='/centre-register' element={<CentreRegister/>}></Route>
+        <Route path='/centre-login' element={<CentreLogin/>}></Route>
+        <Route path='/centre-home' element={<CentreHome/>}></Route>
+
+
 
 
 

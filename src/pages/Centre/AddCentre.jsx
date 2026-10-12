@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import MapPicker from '../pages/MapPicker';
+import MapPicker from '../MapPicker';
 
 import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { adminService } from '../services/adminService';
+import { adminService } from '../../services/adminService';
 import{ useNavigate} from 'react-router-dom'
 
 

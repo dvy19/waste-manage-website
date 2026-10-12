@@ -21,10 +21,11 @@
     GET_USER_ITEMS:"item/get-user-items",
 
 
-    CREATE_CENTRE:'admin/create-centre',
+    CREATE_CENTRE:'centres/centre-create',
 
-    GET_ALL_CENTRE:'admin/get-centres',
-    GET_SINGLE_CENTRE:(id)=>`admin/get-single-centre/${id}`,
+    GET_ALL_CENTRE:'centres/get-centres',
+    GET_SINGLE_CENTRE:(id)=>`centres/get-single-centre/${id}`,
+    GET_MY_CENTRE:"centres/get-my-centre",
 
     CREATE_SALES_ITEM:"admin/create-item",
     GET_SALES_ITEMS:"admin/get-sales-items",
