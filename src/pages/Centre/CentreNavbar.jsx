@@ -84,7 +84,7 @@ export default function CentreNavbar() {
                 onClick={() => { setActiveTab('profile'); triggerToast('Navigated to Profile'); }}
                 className={`px-4 py-2 rounded-xl text-sm font-medium transition duration-150 ${activeTab === 'profile' ? 'bg-emerald-50 text-emerald-600 shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'}`}
               >
-                Profile
+                None 
               </button>
 
               {/* Dropdown More */}

@@ -91,6 +91,14 @@ export const itemService={
         )
 
         return idea.data
+    },
+
+
+    predictReward:async(req)=>{
+
+        const data=await api.post(endpoints.PREDICT_REWARD , req)
+
+        return data.data
     }
 
 

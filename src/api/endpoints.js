@@ -45,6 +45,9 @@
 
     GET_ORDER_STATS:"user/order-stats",
 
+   PREDICT_REWARD:"reward/predict"
+   
+
 
 
  }
